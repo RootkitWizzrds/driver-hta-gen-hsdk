@@ -1,5 +1,5 @@
 use base64::Engine;
-use log::{info, debug};
+use tracing::{info, debug};
 use crate::utils::{read_file_to_vec, write_file};
 
 pub struct HtaGenerator {
