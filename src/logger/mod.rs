@@ -1,9 +1,13 @@
-use log::{info, LevelFilter};
-use env_logger::Builder;
-use std::env;
+use tracing::{info, debug};
+use tracing_subscriber::FmtSubscriber;
 
 pub fn init_logger() {
-    let env = env_logger::Env::default().filter_or("LOG_LEVEL", "info");
-    Builder::from_env(env).init();
+    let subscriber = FmtSubscriber::builder()
+        .with_env_filter(tracing_subscriber::EnvFilter::from_default_env())
+        .finish();
+
+    tracing::subscriber::set_global_default(subscriber)
+        .expect("Failed to set up global subscriber");
+
     info!("[@] Logger initialized");
 }
