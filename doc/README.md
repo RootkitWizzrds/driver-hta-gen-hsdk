@@ -13,47 +13,47 @@ HTA Generator is a Rust-based tool designed to generate HTA (HTML Application) f
 To install HTA Generator, follow these steps:
 
 1. **Clone the Repository:**
-   %%%
+   ```
    git clone https://github.com/0romos/driver-hta-gen-hsdk.git
    cd hta-gen
-   %%%
+   ```
 
 2. **Build the Project:**
-   %%%
+   ```
    cargo build --release
-   %%%
+   ```
 
 ## Usage
 
 Run the tool with the following command:
-   %%%
+   ```
    ./target/release/hta-gen <output_file> <driver_file>
-   %%%
+   ```
 
 ### Example
-   %%%
+   ```
    ./target/release/hta-gen output.hta driver.bin
-   %%%
+   ```
 
 ### Configuration
 
 The tool can be configured using a TOML configuration file. Create a file named `config.toml` with the following structure:
-   %%%
+   ```
    [settings]
    log_level = "info"
-   %%%
+   ```
 
 To use this configuration file, set the `CONFIG_FILE` environment variable:
-   %%%
+   ```
    CONFIG_FILE=config.toml ./target/release/hta-gen output.hta driver.bin
-   %%%
+   ```
 
 ### Debugging
 
 Enable debug logging by setting the `LOG_LEVEL` environment variable:
-   %%%
+   ```
    LOG_LEVEL=debug ./target/release/hta-gen output.hta driver.bin
-   %%%
+   ```
 
 ## Contributing to HTA Generator
 
