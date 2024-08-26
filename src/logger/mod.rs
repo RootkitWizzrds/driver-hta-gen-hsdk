@@ -1,9 +1,11 @@
-use tracing::{info, debug};
-use tracing_subscriber::FmtSubscriber;
+use tracing::info;
+use tracing_subscriber::{FmtSubscriber, EnvFilter};
 
 pub fn init_logger() {
     let subscriber = FmtSubscriber::builder()
-        .with_env_filter(tracing_subscriber::EnvFilter::from_default_env())
+        .without_time()
+        .with_target(false)
+        .with_env_filter(EnvFilter::from_default_env())
         .finish();
 
     tracing::subscriber::set_global_default(subscriber)
